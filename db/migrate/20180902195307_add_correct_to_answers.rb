@@ -4,7 +4,8 @@ class AddCorrectToAnswers < ActiveRecord::Migration[5.2]
       :answers,
       :correct,
       :boolean,
-      default: 0
+      default: false,
+      null: false
     )
   end
 end
