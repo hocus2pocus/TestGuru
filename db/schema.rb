@@ -55,4 +55,7 @@ ActiveRecord::Schema.define(version: 2018_09_02_195307) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "questions", "tests"
+  add_foreign_key "tests", "categories"
 end
