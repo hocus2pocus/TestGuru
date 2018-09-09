@@ -1,14 +1,6 @@
 class User < ApplicationRecord
   def tests_by_level(level)
-
-    user_tests = []
-    Result.where(user_id: self.id).select(:id, :test_id).each { |t| user_tests << t[:test_id]}
-    user_tests.each do |test|
-      Test.where(id: test, level: level)
-    end
-
-
-
+    Test.joins('JOIN results ON results.test_id = tests.id').where('user_id = ? AND level = ?', self.id, level)
   end
 
   alias_method :tbl, :tests_by_level
