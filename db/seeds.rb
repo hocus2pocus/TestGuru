@@ -18,7 +18,7 @@ puts "3 categories created"
   Test.create!(
     title: "Test_#{test + 1}",
     level: rand(1..5),
-    category_id: rand(1..3)
+    category_id: Category.all[rand(Category.count)].id
   )
 end
 
