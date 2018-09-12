@@ -55,13 +55,13 @@ end
 
 puts "3 users created"
 
-User.find_each(batch_size:3) do |user|
-  3.times do
-    Result.create!(user_id: user.id,
-                   test_id: rand(1..5),
-                   result: rand(2)
-                   )
-  end
-end
+# User.find_each(batch_size:3) do |user|
+#   3.times do
+#     Result.create!(user_id: user.id,
+#                    test_id: rand(1..5),
+#                    result: rand(2)
+#                    )
+#   end
+# end
 
-puts "results created"
+# puts "results created"
