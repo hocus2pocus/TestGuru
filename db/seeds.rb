@@ -28,8 +28,8 @@ puts "3 categories created"
   Test.create!(
     title: "Test_#{test + 1}",
     level: rand(1..5),
-    author_id: users_array.shuffle.first.id,
-    category_id: categories_array.shuffle.first.id
+    author_id: users_array.sample.id,
+    category_id: categories_array.sample.id
   )
 end
 
@@ -56,13 +56,13 @@ end
 
 puts "20 answers created"
 
-# User.find_each(batch_size:3) do |user|
-#   3.times do
-#     Result.create!(user_id: user.id,
-#                    test_id: rand(1..5),
-#                    result: rand(2)
-#                    )
-#   end
-# end
+User.find_each(batch_size:3) do |user|
+  3.times do
+    TestsUser.create!(user_id: user.id,
+                   test_id: rand(1..5),
+                   result: rand(2)
+                   )
+  end
+end
 
-# puts "results created"
+puts "results created"
