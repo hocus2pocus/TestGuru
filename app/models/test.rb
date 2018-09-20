@@ -5,10 +5,20 @@ class Test < ApplicationRecord
   has_many :tests_users
   has_many :users, through: :tests_users
 
+  validates :title, presence: true, uniqueness: { scope: :level }
+
+  validate :level, numericality:{ only_integer: true, greater_than_or_equal_to: 1 }
+
   def self.sorted_by_category(category)
     joins(:category)
       .where(categories: { title: category })
       .order(id: :desc)
       .pluck(:title)
   end
+
+  # scope :sorted_by_category, ->(category) { joins(:category).where(categories: { title: category }).order(id: :desc) }#.pluck(:title) }
+
+   scope :easy, -> { where(level: 0..1) }
+   scope :medium, -> { where(level: 2..4) }
+   scope :hard, -> {where(level: 5..Float::INFINITY) }
 end
