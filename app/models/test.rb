@@ -7,7 +7,7 @@ class Test < ApplicationRecord
 
   validates :title, presence: true, uniqueness: { scope: :level }
 
-  validate :level, numericality:{ only_integer: true, greater_than_or_equal_to: 1 }
+  validates :level, numericality:{ only_integer: true, greater_than_or_equal_to: 1 }
 
   def self.sorted_by_category(category)
     joins(:category)
