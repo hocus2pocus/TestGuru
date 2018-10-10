@@ -17,10 +17,10 @@ class QuestionsController < ApplicationController
 
   def create
     question = @test.questions.create(question_params)
-    respond_to do |format|
-      format.html { redirect_to test_questions_path, notice: 'Question was created.' }
-    end
-    # render plain: question.inspect
+    # respond_to do |format|
+    #   format.html { redirect_to test_questions_path, notice: 'Question was created.' }
+    # end
+    redirect_to test_questions_path, notice: 'Question was created.'
   end
 
   def destroy
