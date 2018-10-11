@@ -10,12 +10,14 @@ class TestsController < ApplicationController
     # byebug
     # render inline: '<%= console %>'
 
-    result = ["Class: #{params.class},", "Parametrs: #{params.inspect}"]
-    render plain: result.join("\n")
+    # result = ["Class: #{params.class},", "Parametrs: #{params.inspect}"]
+    # render plain: result.join("\n")
+
+    @tests = Test.all
   end
 
   def show
-    redirect_to 'http://rusrails.ru'
+    @test = Test.find(params[:id])
   end
 
   def search
@@ -24,15 +26,36 @@ class TestsController < ApplicationController
   end
 
   def new
+    @test = Test.new
+  end
+
+  def edit
+    @test = Test.find(params[:id])
   end
 
   def create
     # result = ["Class: #{params.class},", "Parametrs: #{params.inspect}"]
     # render plain: result.join("\n")
-    byebug
-    test = Test.create(test_params)
+    # byebug
+    @test = Test.new(test_params)
 
-    render plain: test.inspect
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
+
+    # render plain: test.inspect
+  end
+
+  def update
+      @test = Test.find(params[:id])
+
+    if @test.update(test_params)
+      redirect_to @test
+    else
+      render :edit
+    end
   end
 
   private
