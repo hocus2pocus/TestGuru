@@ -7,3 +7,12 @@
   <strong>Level:</strong>
   <%= @test.level %>
 </p>
+
+<p>
+  <strong>Questions:</strong>
+  <% @test.questions.each do |question| %>
+  <td>
+    <tr><%= question.body %></tr>
+  </td>
+  <% end %>
+</p>
