@@ -1,33 +1,45 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index create]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[index new create]
+  before_action :find_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_question_not_found
 
   def index
-    # render json: { questions: @test.questions }
   end
 
   def show
-    render json: { body: @question.body }
   end
 
   def new
+    @question = Question.new
   end
 
   def create
-    question = @test.questions.create(question_params)
-    # respond_to do |format|
-    #   format.html { redirect_to test_questions_path, notice: 'Question was created.' }
-    # end
-    redirect_to test_questions_path, notice: 'Question was created.'
+    # question = @test.questions.create(question_params)
+    # redirect_to test_path(@test), notice: 'Question was created.'
+
+    @question = Question.new(question_params)
+
+    if @question.save
+      redirect_to test_path(@test), notice: 'Question was created.'
+    else
+      render :new, notice: 'Question not created.'
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question.test, notice: 'Question updated.'
+    else
+      render :edit, notice: 'Question not updated.'
+    end
   end
 
   def destroy
     question = @question.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to test_questions_url, notice: 'Question was deleted.'}
-    # end
     redirect_to test_questions_path(question.test.id)
   end
 

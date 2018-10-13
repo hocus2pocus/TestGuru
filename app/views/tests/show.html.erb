@@ -1,4 +1,14 @@
 <p>
+  <%= link_to 'Edit', edit_test_path(@test) %> |
+  <%= link_to 'Back', tests_path %> |
+  <%= link_to 'Delete',
+                    test_path(@test),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Add question', new_test_question_path(@test) %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @test.title %>
 </p>
@@ -9,19 +19,12 @@
 </p>
 
 <p>
-  <strong>Questions:</strong>
-  <% @test.questions.each do |question| %>
-  <td>
-    <tr><%= question.body %></tr>
-  </td>
-  <% end %>
+  <table>
+  <tr>
+    <th>Question</th>
+    <th colspan="3">Actions</th>
+  </tr>
 
-  <p>
-    <%= link_to 'Edit', edit_test_path(@test) %> |
-    <%= link_to 'Back', tests_path %> |
-    <%= link_to 'Delete',
-                      test_path(@test),
-                      method: :delete,
-                      data: { confirm: 'Are you sure?' } %>
-  </p>
+    <%= render @test.questions %>
+  </table>
 </p>
