@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     # question = @test.questions.create(question_params)
     # redirect_to test_path(@test), notice: 'Question was created.'
 
-    @question = Question.new(question_params)
+    @question = @test.questions.new(question_params)
 
     if @question.save
       redirect_to test_path(@test), notice: 'Question was created.'
@@ -40,7 +40,8 @@ class QuestionsController < ApplicationController
 
   def destroy
     question = @question.destroy
-    redirect_to test_questions_path(question.test.id)
+    #redirect_to test_questions_path(question.test.id)
+    redirect_to test_path(question.test.id), notice: 'Question deleted.'
   end
 
   private
