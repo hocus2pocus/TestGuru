@@ -4,9 +4,6 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_question_not_found
 
-  def index
-  end
-
   def show
   end
 
@@ -15,9 +12,6 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    # question = @test.questions.create(question_params)
-    # redirect_to test_path(@test), notice: 'Question was created.'
-
     @question = @test.questions.new(question_params)
 
     if @question.save
