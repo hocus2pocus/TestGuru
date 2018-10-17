@@ -11,3 +11,10 @@
   <strong>Question:</strong><br>
   <%= @question.body %>
 </p>
+
+<strong>Answers:</strong>
+<%= link_to 'New Answer', new_question_answer_path(@question) %>
+
+<ol>
+  <%= render @question.answers %>
+</ol>
