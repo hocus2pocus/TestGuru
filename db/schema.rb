@@ -62,16 +62,6 @@ ActiveRecord::Schema.define(version: 2018_10_19_080848) do
     t.index ["level", "title"], name: "index_tests_on_level_and_title", unique: true
   end
 
-  create_table "tests_users", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "test_id"
-    t.integer "result", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["test_id"], name: "index_tests_users_on_test_id"
-    t.index ["user_id"], name: "index_tests_users_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "login", null: false
     t.string "password", null: false
@@ -87,6 +77,4 @@ ActiveRecord::Schema.define(version: 2018_10_19_080848) do
   add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
-  add_foreign_key "tests_users", "tests"
-  add_foreign_key "tests_users", "users"
 end
