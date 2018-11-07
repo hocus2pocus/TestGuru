@@ -14,6 +14,18 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def percent_of_correct_answers
+    correct_questions.to_f / test.questions.count * 100
+  end
+
+  def success?
+    percent_of_correct_answers >= 85
+  end
+
+  def question_number
+    test.questions.where('id < ?', current_question.id).count + 1
+  end
+
   private
 
   def before_validation_set_question

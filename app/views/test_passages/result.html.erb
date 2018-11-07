@@ -1,3 +1,7 @@
 <h1>The <%= @test_passage.test.title %> Test was completed!</h1>
- <%= link_to 'Back', tests_path %>
- <%= @test_passage.current_question.nil? %>
+ <%= link_to 'Main page', tests_path %>
+
+<h2 class="<%= result_style(@test_passage) %>" >
+  <b><%= test_result(@test_passage) %></b><br>
+  Your result: <%= @test_passage.percent_of_correct_answers %>%
+</h2>
