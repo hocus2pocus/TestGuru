@@ -7,7 +7,7 @@ module TestPassagesHelper
     test_passage.success? ? 'SUCCESS!' : 'FAIL!'
   end
 
-  def question_count(test_passage)
+  def question_count_text(test_passage)
     "#{test_passage.question_number} of #{test_passage.test.questions.size}"
   end
 end
