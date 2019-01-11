@@ -13,4 +13,9 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    session.delete(:user_id)
+    redirect_to login_path, alert: 'You are out now. Enter your email and password to continue.'
+  end
 end
