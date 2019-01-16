@@ -4,8 +4,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :created_tests, class_name: "Test", foreign_key: "author_id"
 
-  validates :email, uniqueness: true
-  validates :email, presence: true, format: /.+@.+\..+/i
+  validates :email,
+  validates :email, presence: true, uniqueness: true, format: /.+@.+\..+/i
 
   has_secure_password
 
