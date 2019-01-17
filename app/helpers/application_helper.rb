@@ -7,7 +7,7 @@ module ApplicationHelper
     link_to 'TestGuru', "https://github.com/#{author}/#{repo}"
   end
 
-  def flash_alert(type)
-    content_tag :p, flash[type.to_sym], class: "flash #{type}"
+  def flash_helper(type)
+    content_tag :p, flash[type.to_sym], class: "flash #{type}" if type.present?
   end
 end
