@@ -1,8 +1,8 @@
 <p>
-  <%= link_to 'Edit', edit_test_path(@test) %> |
-  <%= link_to 'Back', tests_path %> |
+  <%= link_to 'Edit', edit_admin_test_path(@test) %> |
+  <%= link_to 'Back', admin_tests_path %> |
   <%= link_to 'Delete',
-                    test_path(@test),
+                    admin_test_path(@test),
                     method: :delete,
                     data: { confirm: 'Are you sure?' } %> |
   <%= link_to 'Add question', new_test_question_path(@test) %>
