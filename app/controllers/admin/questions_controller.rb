@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   before_action :find_test, only: %i[index new create]
   before_action :find_question, only: %i[show destroy edit update]
 
@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_path(@test), notice: 'Question was created.'
+      redirect_to admin_test_path(@test), notice: 'Question was created.'
     else
       render :new, notice: 'Question not created.'
     end

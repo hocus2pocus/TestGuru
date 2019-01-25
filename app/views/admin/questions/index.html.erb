@@ -1,0 +1,15 @@
+<hr>
+<h1><%= @test.title %> questions</h1>
+<hr>
+<%= link_to 'Create', new_admin_test_question_path %>
+<hr>
+<table>
+  <tr>
+    <th>Question</th>
+    <th colspan="3">Actions</th>
+  </tr>
+
+  <%= render @test.questions %>
+</table>
+<hr>
+
