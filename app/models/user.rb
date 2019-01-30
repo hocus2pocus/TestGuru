@@ -13,7 +13,6 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :created_tests, class_name: "Test", foreign_key: "author_id"
 
-  validates :email, presence: true, uniqueness: true, format: /.+@.+\..+/i
   validates :first_name, :last_name, presence: true
 
   def tests_by_level(level)
@@ -24,5 +23,9 @@ class User < ApplicationRecord
   def test_passage(test)
     #ordered to take exactly the last test that user passed
     test_passages.order(id: :desc).find_by(test: test)
+  end
+
+  def admin?
+    is_a?(Admin)
   end
 end
