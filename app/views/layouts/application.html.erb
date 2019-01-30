@@ -10,18 +10,16 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-
-    <% if logged_in? %>
-
+    <% if user_signed_in? %>
       <p class="nav user">
         Welcome, <b><%= current_user.email %></b> <%= link_to 'Guru', root_path %><br>
-        <%= link_to 'Logout', logout_path %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       </p>
-
     <% else %>
-      <p class="nav user"><%= link_to 'Create account', signup_path %></p>
+      <p class="nav user"><%= link_to 'Create account', new_user_registration_path %></p>
     <% end %>
+
+    <%= render 'shared/flash' %>
 
     <%= yield %>
 

@@ -1,13 +1,19 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :confirmable,
+         :trackable,
+         :validatable
 
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :created_tests, class_name: "Test", foreign_key: "author_id"
 
-  validates :email,
-  validates :email, presence: true, uniqueness: true, format: /.+@.+\..+/i
-
-  has_secure_password
+  validates :first_name, :last_name, presence: true
 
   def tests_by_level(level)
     tests.where(level: level)
@@ -17,5 +23,9 @@ class User < ApplicationRecord
   def test_passage(test)
     #ordered to take exactly the last test that user passed
     test_passages.order(id: :desc).find_by(test: test)
+  end
+
+  def admin?
+    is_a?(Admin)
   end
 end
