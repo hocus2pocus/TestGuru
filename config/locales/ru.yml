@@ -1,6 +1,7 @@
 ru:
   hello: "Привет, мир"
 
+
   helpers:
     submit:
       test:
@@ -11,6 +12,18 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+
+  layouts:
+    admin:
+      admin_header: "QWERTY"
+      show: "Показать"
+      edit: "Редактировать"
+      delete: "Удалить"
+    application:
+      create_account: "Регистрация"
+      guru: "гуру"
+      welcome: "Добро пожаловать"
+      logout: "Выйти"
 
   shared:
     errors:
@@ -25,8 +38,16 @@ ru:
       header: "Доступные тесты"
 
   test_passages:
+    show:
+      passing: "Вы проходите тест %{test}"
+      question: "Вопрос %{current} из %{total}"
+      next_button: "Дальше"
     result:
       header: "Тест %{title} успешно завершен!"
+      main_page: "Главная страница"
+      success: "Тест пройден"
+      fail: "Тест не пройден"
+      result_message: "Ваш результат: %{percent}"
 
   admin:
     tests:
@@ -34,6 +55,17 @@ ru:
         success: "Тест успешно создан."
       index:
         header: "Доступные тесты"
+        new_test: "Создать тест"
+
+  test_table:
+    title: "Название теста"
+    level: "Уровень"
+    questions: "Количество вопросов"
+    actions: "Доступные действия"
+    start: "Начать"
+
+  nav_bar:
+    admin_header: "Панель администратора TestGuru"
 
   tests_mailer:
     completed_test:
