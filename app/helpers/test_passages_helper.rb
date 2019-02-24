@@ -4,7 +4,7 @@ module TestPassagesHelper
   end
 
   def test_result(test_passage)
-    test_passage.success? ? 'SUCCESS!' : 'FAIL!'
+    test_passage.success? ? t('.success') : t('.fail')
   end
 
   def question_count_text(test_passage)

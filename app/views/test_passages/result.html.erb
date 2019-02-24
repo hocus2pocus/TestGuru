@@ -1,7 +1,7 @@
-<h1>The <%= @test_passage.test.title %> Test was completed!</h1>
- <%= link_to 'Main page', tests_path %>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
+ <%= link_to t('.main_page'), tests_path %>
 
 <h2 class="<%= result_style(@test_passage) %>" >
   <b><%= test_result(@test_passage) %></b><br>
-  Your result: <%= @test_passage.percent_of_correct_answers %>%
+  <%= t('.result_message', percent: @test_passage.percent_of_correct_answers) %>%
 </h2>
