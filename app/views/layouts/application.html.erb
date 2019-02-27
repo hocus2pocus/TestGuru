@@ -13,14 +13,16 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
+<!--     <% if user_signed_in? %>
       <p class="nav user">
         <%= t('.welcome') %>, <b><%= current_user.first_name %></b>-<%= link_to t('.guru'), root_path %> |
         <%= link_to t('.logout'), destroy_user_session_path, method: :delete %>
       </p>
     <% else %>
       <p class="nav user"><%= link_to t('.create_account'), new_user_registration_path %></p>
-    <% end %>
+    <% end %> -->
+
+    <%= render 'shared/nav' %>
 
     <div class="container">
       <%= render 'shared/flash' %>
