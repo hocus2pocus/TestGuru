@@ -10,4 +10,8 @@ module ApplicationHelper
   def flash_helper(type)
     content_tag :p, flash[type.to_sym], class: "flash #{type}" if type.present?
   end
+
+  def alert_type(alert_key)
+    alert_key == 'notice' ? 'success' : 'danger'
+  end
 end

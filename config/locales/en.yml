@@ -92,7 +92,7 @@ en:
     start: "Start"
 
   nav_bar:
-    admin_header: "Admin Panel | TestGuru"
+    admin_header: "Admin Panel"
 
   tests_mailer:
     completed_test:
