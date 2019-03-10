@@ -67,6 +67,13 @@ ru:
   nav_bar:
     admin_header: "Панель администратора TestGuru"
 
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершен!"
+    gist:
+      success: "Gist успешно сохранён!"
+      failure: "Во время сохранения gist произошла ошибка"
+
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
