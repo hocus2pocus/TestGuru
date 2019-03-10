@@ -25,7 +25,7 @@ class TestPassagesController < ApplicationController
     flash_options = if result.success?
       { notice: t('.success') }
     else
-      { alert: t('.failure')}
+      { alert: t('.failure') }
     end
 
     redirect_to @test_passage. flash_options
