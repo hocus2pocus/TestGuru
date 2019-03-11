@@ -71,7 +71,7 @@ ru:
     result:
       header: "Тест %{title} успешно завершен!"
     gist:
-      success: "Gist успешно сохранён!"
+      success: "Gist успешно сохранён! Ссылка %{url}"
       failure: "Во время сохранения gist произошла ошибка"
 
   tests_mailer:

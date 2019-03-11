@@ -20,15 +20,15 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GitQuestionService.new(@test_passage.current_question).call
+    result = GistQuestionService.new(@test_passage.current_question).call
 
-    flash_options = if result.success?
-      { notice: t('.success') }
-    else
+    flash_options = if result.url.nil?
       { alert: t('.failure') }
+    else
+      { notice: t('.success', url: result.url) }
     end
 
-    redirect_to @test_passage. flash_options
+    redirect_to @test_passage, flash_options
   end
 
   private
