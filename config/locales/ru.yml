@@ -78,5 +78,6 @@ ru:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
 
-  gist:
-    description: "Вопрос по тесту %{title} на сервисе TestGuru"
+  services:
+    git_question_service:
+      description: "Вопрос по тесту %{title} на сервисе TestGuru"
