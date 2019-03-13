@@ -22,14 +22,16 @@ class TestPassagesController < ApplicationController
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
 
-    flash_options = if result.url.nil?
-      { alert: t('.failure') }
+    flash_options = if result.success?
+      current_user.gists.create(question: @test_passage.current_question,
+                                url: result.gist_url,
+                                github_id: result.gist_id )
+      flash[:notice] = t('.success', url: result.gist_url)
     else
-      current_user.gists.create(question: @test_passage.current_question, url: result.url )
-      { notice: t('.success', url: result.url) }
+      flash[:alert] = t('.failure')
     end
 
-    redirect_to @test_passage, flash_options
+    redirect_to @test_passage
   end
 
   private

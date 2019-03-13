@@ -1,5 +1,25 @@
 class GistQuestionService
 
+  class GistQuestionServiceResult
+    attr_reader :response
+
+    def initialize(response)
+      @response = response
+    end
+
+    def success?
+      !@response.url.nil?
+    end
+
+    def gist_id
+      @response.id
+    end
+
+    def gist_url
+      @response.html_url
+    end
+  end
+
   def initialize(question, client: default_client)
     @question = question
     @test = @question.test
@@ -7,7 +27,7 @@ class GistQuestionService
   end
 
   def call
-    @client.create_gist(gist_params)
+    GistQuestionServiceResult.new(@client.create_gist(gist_params))
   end
 
   private
