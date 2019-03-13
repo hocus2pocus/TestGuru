@@ -32,13 +32,11 @@ ActiveRecord::Schema.define(version: 2019_03_11_065146) do
 
   create_table "gists", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "test_id", null: false
-    t.bigint "current_question_id", null: false
+    t.bigint "question_id", null: false
     t.string "url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["current_question_id"], name: "index_gists_on_current_question_id"
-    t.index ["test_id"], name: "index_gists_on_test_id"
+    t.index ["question_id"], name: "index_gists_on_question_id"
     t.index ["user_id"], name: "index_gists_on_user_id"
   end
 
@@ -101,8 +99,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_065146) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "gists", "questions", column: "current_question_id"
-  add_foreign_key "gists", "tests"
+  add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passages", "questions", column: "current_question_id"
