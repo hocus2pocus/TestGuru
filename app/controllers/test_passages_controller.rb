@@ -22,7 +22,7 @@ class TestPassagesController < ApplicationController
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
 
-    flash_options = if result.success?
+    if result.success?
       current_user.gists.create(question: @test_passage.current_question,
                                 url: result.gist_url,
                                 github_id: result.gist_id )
