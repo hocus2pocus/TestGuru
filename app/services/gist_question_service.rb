@@ -11,10 +11,6 @@ class GistQuestionService
       !@response.url.nil?
     end
 
-    def gist_id
-      @response.id
-    end
-
     def gist_url
       @response.html_url
     end
