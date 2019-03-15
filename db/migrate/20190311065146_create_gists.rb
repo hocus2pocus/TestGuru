@@ -4,7 +4,6 @@ class CreateGists < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true, null: false
       t.references :question, foreign_key: true, null: false
       t.string :url, null: false
-      t.string :github_id, null: false
 
       t.timestamps
     end
