@@ -4,6 +4,7 @@
 
   <div class="navbar-text">
     <%= t('layouts.application.welcome') %>, <b class="nav-admin user-email"><%= current_user.first_name %></b> Guru |
+    <%= link_to "Gists list", admin_gists_path %> |
     <%= link_to t('layouts.application.logout'), destroy_user_session_path, method: :delete %>
   </div>
 </nav>

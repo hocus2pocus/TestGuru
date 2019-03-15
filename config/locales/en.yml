@@ -94,6 +94,17 @@ en:
   nav_bar:
     admin_header: "Admin Panel"
 
+  test_passages:
+    result:
+      header: "The %{title} Test was completed!"
+    gist:
+      success: "Gist successfully created! %{url}"
+      failure: "An error occured while saving gist"
+
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  services:
+    gist_question_service:
+      description: A question about %{title} from TestGuru"
