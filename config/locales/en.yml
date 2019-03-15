@@ -106,5 +106,5 @@ en:
       subject: "You just completed the TestGuru test!"
 
   services:
-    git_question_service:
+    gist_question_service:
       description: A question about %{title} from TestGuru"
