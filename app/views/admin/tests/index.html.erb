@@ -3,14 +3,13 @@
 <p>
   <%= link_to t('.new_test'), new_admin_test_path %>
 </p>
-
+<%= evil_icons_sprite %>
 <table class="table">
   <tr>
     <th class="sort-by-title pointer">
       <%= t('test_table.title') %>
       <%= octicon 'arrow-up', class: 'text-success hide' %>
       <%= octicon 'arrow-down', class: 'text-success hide' %>
-
     </th>
     <th><%= t('test_table.level') %></th>
     <th><%= t('test_table.questions') %></th>

@@ -3,7 +3,11 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col"><%= t('test_table.title') %></th>
+      <th class="sort-by-title pointer">
+        <%= t('test_table.title') %>
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
       <th scope="col"><%= t('test_table.level') %></th>
       <th scope="col"><%= t('test_table.questions') %></th>
       <th scope="col"><%= t('test_table.actions') %></th>
