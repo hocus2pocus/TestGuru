@@ -48,6 +48,9 @@ ru:
       success: "Тест пройден"
       fail: "Тест не пройден"
       result_message: "Ваш результат: %{percent}"
+    gist:
+      success: "Gist успешно сохранён! Ссылка %{url}"
+      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     tests:
@@ -68,13 +71,6 @@ ru:
 
   nav_bar:
     admin_header: "Панель администратора TestGuru"
-
-  test_passages:
-    result:
-      header: "Тест %{title} успешно завершен!"
-    gist:
-      success: "Gist успешно сохранён! Ссылка %{url}"
-      failure: "Во время сохранения gist произошла ошибка"
 
   tests_mailer:
     completed_test:
