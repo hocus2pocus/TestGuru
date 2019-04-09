@@ -53,6 +53,8 @@ ru:
     tests:
       create:
         success: "Тест успешно создан."
+      form_inline:
+        submit: "OK"
       index:
         header: "Доступные тесты"
         new_test: "Создать тест"
