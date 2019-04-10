@@ -6,15 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users_array = Array.new(3) do |user|
-  User.create!(
-    login: "User_#{user + 1}",
-    password: "password",
-    email: "email"
-  )
-end
+# users_array = Array.new(3) do |user|
+#   User.create!(
+#     login: "User_#{user + 1}",
+#     password: "password",
+#     email: "email"
+#   )
+# end
 
-puts "3 users created"
+# puts "3 users created"
 
 categories_array = Array.new(3) do |category|
   Category.create!(
@@ -28,7 +28,7 @@ puts "3 categories created"
   Test.create!(
     title: "Test_#{test + 1}",
     level: rand(1..5),
-    author_id: users_array.sample.id,
+    author_id: User.first.id,
     category_id: categories_array.sample.id
   )
 end
@@ -52,17 +52,13 @@ Question.find_each(batch_size: 10) do |qustion|
 
   Answer.create!(body: "Answer for #{qustion.body}",
                  question_id: qustion.id)
+
+  Answer.create!(body: "Answer for #{qustion.body}",
+                 question_id: qustion.id)
+
+  Answer.create!(body: "Answer for #{qustion.body}",
+                 question_id: qustion.id)
 end
 
-puts "20 answers created"
+puts "50 answers created"
 
-# User.find_each(batch_size:3) do |user|
-#   3.times do
-#     TestsUser.create!(user_id: user.id,
-#                    test_id: rand(1..5),
-#                    result: rand(2)
-#                    )
-#   end
-# end
-
-# puts "results created"
