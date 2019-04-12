@@ -1,4 +1,9 @@
+<div class="progress">
+    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" data-percent="<%= @test_passage.question_number * 100 / @test_passage.test.questions.size.to_f %>"></div>
+</div>
+
 <h1><%= t('.passing', test: @test_passage.test.title) %></h1>
+
 <h4><%= t('.question', current: @test_passage.question_number, total: @test_passage.test.questions.size) %></h4>
 
 <p>
@@ -14,5 +19,5 @@
     <% end %>
 
   <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
-  <p><%= form.submit t('.next_button') %></p>
+  <p class="submit-answer"><%= form.submit t('.next_button') %></p>
 <% end %>
