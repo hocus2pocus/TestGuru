@@ -8,7 +8,6 @@ document.addEventListener('turbolinks:load', function(){
 
 
     var errors = document.querySelector('.resourse-errors');
-    //console.log(errors);
 
     if (errors) {
       var resourceId = errors.dataset.resourceId;
