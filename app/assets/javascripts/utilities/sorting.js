@@ -1,8 +1,8 @@
 document.addEventListener('turbolinks:load', function(){
   var control = document.querySelector('.sort-by-title');
 
-  if (control) { control.addEventListener('click', sortRowsByTitle) }
-})
+  if (control) { control.addEventListener('click', sortRowsByTitle); }
+});
 
 function sortRowsByTitle() {
   var table = document.querySelector('table');
@@ -46,7 +46,7 @@ function compareRowsAsc(row1, row2) {
 
   if (testTitle1 < testTitle2) { return -1; }
   if (testTitle1 > testTitle2) { return 1; }
-  return 0
+  return 0;
 }
 
 function compareRowsDesc(row1, row2) {

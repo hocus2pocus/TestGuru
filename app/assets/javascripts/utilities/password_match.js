@@ -3,7 +3,7 @@ document.addEventListener('turbolinks:load', function(){
   var controlPasswordConfirmation = document.querySelector('#user_password_confirmation');
 
   if (controlPassword && controlPasswordConfirmation) { controlPasswordConfirmation.addEventListener('input', checkPasswordConfirmation); }
-})
+});
 
 function checkPasswordConfirmation() {
   var password = document.querySelector('#user_password').value;
@@ -12,7 +12,7 @@ function checkPasswordConfirmation() {
   if (password_confirmation === "" || password === "") {
     document.querySelector('.octicon-x').classList.add('hide');
     document.querySelector('.octicon-check').classList.add('hide');
-    return
+    return;
   }
 
   if (password_confirmation && password === password_confirmation) {

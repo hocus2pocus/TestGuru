@@ -14,7 +14,7 @@ document.addEventListener('turbolinks:load', function(){
       formInlineHandler(resourceId);
     }
   }
-})
+});
 
 function formInlineLinkHandler(event) {
   event.preventDefault();

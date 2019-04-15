@@ -4,5 +4,5 @@ document.addEventListener('turbolinks:load', function(){
     var percent = control.dataset.percent;
     control.style.width = percent + "%";
   }
-})
+});
 
