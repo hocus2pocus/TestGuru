@@ -63,6 +63,8 @@ en:
   tests:
     index:
       header: "Tricky tests"
+    start:
+      error: "Unfortunately, this test is not ready yet. Sorry."
 
   test_passages:
     show:

@@ -36,6 +36,8 @@ ru:
   tests:
     index:
       header: "Доступные тесты"
+    start:
+      error: "К сожалению, этот тест ещё не готов. Извините."
 
   test_passages:
     show:
