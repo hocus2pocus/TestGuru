@@ -63,6 +63,8 @@ en:
   tests:
     index:
       header: "Tricky tests"
+    start:
+      error: "Unfortunately, this test is not ready yet. Sorry."
 
   test_passages:
     show:
@@ -102,6 +104,10 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  feedbacks:
+    create:
+      message_sent: "The message is sent"
 
   services:
     gist_question_service:

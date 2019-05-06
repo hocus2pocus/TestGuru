@@ -36,6 +36,8 @@ ru:
   tests:
     index:
       header: "Доступные тесты"
+    start:
+      error: "К сожалению, этот тест ещё не готов. Извините."
 
   test_passages:
     show:
@@ -75,6 +77,10 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"
+
+  feedbacks:
+    create:
+      message_sent: "Сообщение отправлено"
 
   services:
     gist_question_service:

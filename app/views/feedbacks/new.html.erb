@@ -1,0 +1,8 @@
+<h1>Feedback</h1>
+
+<%= form_with url: feedbacks_path do %>
+  <%= label_tag(:email, "Your email:") %>
+  <%= current_user.email %><br>
+  <%= text_area_tag(:message, "", size: "50x10") %> <br>
+  <%= submit_tag("Send") %>
+<% end %>
