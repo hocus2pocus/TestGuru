@@ -10,11 +10,11 @@ class BadgesControlService
   def call
   end
 
-  # private
+  private
 
   def badges_model_check
     default_bages
-    @first_attempt ||= Badge.create!(title: 'First attempt', picture: "ei-trophy")
+    @first_attempt ||= Badge.create!(title: 'First attempt', picture: "red-badge")
   end
 
   def default_bages

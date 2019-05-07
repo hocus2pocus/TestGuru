@@ -1,0 +1,15 @@
+<h1><%= t('badges.index.header') %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t('badges.picture') %></th>
+      <th scope="col"><%= t('badges.title') %></th>
+    </tr>
+  </thead>
+
+<tbody>
+    <%= render @badges %>
+</tbody>
+
+</table>
