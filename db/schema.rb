@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_152614) do
+ActiveRecord::Schema.define(version: 2019_05_14_075450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "achieved_badges", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_achieved_badges_on_badge_id"
+    t.index ["user_id"], name: "index_achieved_badges_on_user_id"
+  end
 
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
@@ -105,6 +115,8 @@ ActiveRecord::Schema.define(version: 2019_05_07_152614) do
     t.index ["type"], name: "index_users_on_type"
   end
 
+  add_foreign_key "achieved_badges", "badges"
+  add_foreign_key "achieved_badges", "users"
   add_foreign_key "answers", "questions"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"

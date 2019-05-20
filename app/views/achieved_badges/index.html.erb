@@ -1,0 +1,15 @@
+<h1><%= t('badges.index.header') %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t('badges.date') %></th>
+      <th scope="col"><%= t('badges.badge') %></th>
+      <th scope="col"><%= t('badges.description') %></th>
+    </tr>
+  </thead>
+
+<tbody>
+    <%= render @achieved_badges %>
+</tbody>
+</table>
