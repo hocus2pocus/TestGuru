@@ -47,3 +47,5 @@ class GistQuestionService
     Octokit::Client.new(:access_token => ENV['GITHUB_GIST_ACCESS_TOKEN'])
   end
 end
+
+test
