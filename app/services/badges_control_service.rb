@@ -87,3 +87,5 @@ class BadgesControlService
     end
   end
 end
+
+#test
