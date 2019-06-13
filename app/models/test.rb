@@ -22,4 +22,7 @@ class Test < ApplicationRecord
    scope :easy, -> { where(level: 0..1) }
    scope :medium, -> { where(level: 2..4) }
    scope :hard, -> {where(level: 5..Float::INFINITY) }
+
+   scope :test_category, ->(category) { where(category_id: category) }
+   scope :test_level, ->(level) { where(level: level) }
 end
