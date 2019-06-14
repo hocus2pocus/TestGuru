@@ -3,35 +3,14 @@ class BadgesControlService
   def initialize(test_passage)
     @test_passage = test_passage
     @user = test_passage.user
-
-    badges_model_check
   end
 
   def call
     return unless @test_passage.success?
-    #achieve_first_attempt if rule_first_attempt
-    #achieve_all_by_category if rule_all_by_category
-    #achieve_all_by_level if rule_all_by_level
-
     Badge.all.select { |badge| send("rule_#{badge.title}")}
-
-
   end
 
   private
-
-  def badges_model_check
-    default_bages
-    @first_attempt ||= Badge.create!(title: 'first_attempt', picture: "red-badge")
-    @all_by_category ||= Badge.create!(title: 'all_by_category', picture: "green-badge")
-    @all_by_level ||= Badge.create!(title: 'all_by_level', picture: "pink-badge")
-  end
-
-  def default_bages
-    @first_attempt = Badge.find_by(title: 'first_attempt')
-    @all_by_category = Badge.find_by(title: 'all_by_category')
-    @all_by_level = Badge.find_by(title: 'all_by_level')
-  end
 
   def rule_first_attempt
     TestPassage.where(user_id: @user.id, test_id: @test_passage.test.id).count == 1
