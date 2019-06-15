@@ -45,6 +45,18 @@ class TestPassagesController < ApplicationController
 
     if badges.any?
       current_user.badges << badges
+      badges.each do |badge|
+        case badge.picture
+        when "red-badge"
+          flash[:red_badge] = t('.red-badge', reason: @test_passage.test.title)
+        when "green-badge"
+          flash[:green_badge] = t('.green-badge', reason: @test_passage.test.category.title)
+        when "pink-badge"
+          flash[:pink_badge] = t('.pink-badge', reason: @test_passage.test.level)
+        else
+          flash[:notice] = t('.other-badge')
+        end
+      end
     end
   end
 end

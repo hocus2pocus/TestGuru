@@ -12,6 +12,17 @@ module ApplicationHelper
   end
 
   def alert_type(alert_key)
-    alert_key == 'notice' ? 'success' : 'danger'
+    case alert_key
+      when 'notice'
+        'success'
+      when 'red_badge'
+        'red_badge'
+      when 'green_badge'
+        'green_badge'
+      when 'pink_badge'
+        'pink_badge'
+      else
+        'danger'
+      end
   end
 end

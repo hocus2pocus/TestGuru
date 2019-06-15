@@ -5,13 +5,11 @@
     <tr>
       <th scope="col"><%= t('badges.picture') %></th>
       <th scope="col"><%= t('badges.title') %></th>
+      <th scope="col"><%= t('badges.quntity') %></th>
     </tr>
   </thead>
 
 <tbody>
     <%= render @badges %>
 </tbody>
-
-<p><%= button_to 'My badges', achieved_badges_index_path, class: "teal-button", method: :get %></p>
-
 </table>

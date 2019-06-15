@@ -116,5 +116,8 @@ en:
   badges:
     picture: "Badge"
     title: "Description"
+    quntity: "Quntity"
     index:
       header: "Try to achieve"
+    my:
+      header: "Earned"
