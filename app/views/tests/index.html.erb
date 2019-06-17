@@ -8,6 +8,7 @@
         <%= octicon 'arrow-up', class: 'text-success hide' %>
         <%= octicon 'arrow-down', class: 'text-success hide' %>
       </th>
+      <th scope="col"><%= t('test_table.category') %></th>
       <th scope="col"><%= t('test_table.level') %></th>
       <th scope="col"><%= t('test_table.questions') %></th>
       <th scope="col"><%= t('test_table.actions') %></th>
@@ -17,5 +18,6 @@
   <tbody>
     <%= render @tests %>
   </tbody>
-
 </table>
+
+<p><%= button_to 'Badges', badges_path, class: "pink-button", method: :get %></p>

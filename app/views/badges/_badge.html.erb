@@ -1,0 +1,5 @@
+    <tr>
+      <td><%= octicon "ruby", :height => 50, class: "#{badge.picture}" %></td>
+      <td><%= badge.title %></td>
+      <td><%= current_user.badges.select { |b| b.picture == badge.picture }.count %></td>
+    </tr>

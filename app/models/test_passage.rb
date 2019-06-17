@@ -50,4 +50,6 @@ class TestPassage < ApplicationRecord
       test.questions.first if test.present?
     end
   end
+
+  scope :finished, -> { where(current_question_id: nil) }
 end

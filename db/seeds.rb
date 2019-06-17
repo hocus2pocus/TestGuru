@@ -16,6 +16,10 @@
 
 # puts "3 users created"
 
+default_bages = Badge.create!([{title: 'first_attempt', picture: "red-badge"},
+                               {title: 'all_by_category', picture: "green-badge"},
+                               {title: 'all_by_level', picture: "pink-badge"}])
+
 categories_array = Array.new(3) do |category|
   Category.create!(
     title: "Category_#{category + 1}"
