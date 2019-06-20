@@ -2,6 +2,8 @@
     <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" data-percent="<%= @test_passage.question_number * 100 / @test_passage.test.questions.size.to_f %>"></div>
 </div>
 
+<div class="timer hide" data-limit="<%= @test_passage.time_left %>"><%= @test_passage.time_left.to_i %>:00</div>
+
 <h1><%= t('.passing', test: @test_passage.test.title) %></h1>
 
 <h4><%= t('.question', current: @test_passage.question_number, total: @test_passage.test.questions.size) %></h4>
