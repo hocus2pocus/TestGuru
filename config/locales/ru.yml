@@ -12,6 +12,7 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+        time_limit: "Ввести таймер"
 
   layouts:
     admin:
