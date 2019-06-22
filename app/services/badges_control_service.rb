@@ -6,7 +6,6 @@ class BadgesControlService
   end
 
   def call
-    return unless @test_passage.success?
     Badge.all.select { |badge| send("rule_#{badge.title}")}
   end
 

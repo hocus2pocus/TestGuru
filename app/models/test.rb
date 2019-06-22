@@ -7,7 +7,7 @@ class Test < ApplicationRecord
   has_many :gists
 
   validates :title, presence: true, uniqueness: { scope: :level }
-
+  validates :time_limit, presence: true
   validates :level, numericality:{ only_integer: true, greater_than_or_equal_to: 1 }
 
   def self.sorted_by_category(category)
@@ -15,6 +15,10 @@ class Test < ApplicationRecord
       .where(categories: { title: category })
       .order(id: :desc)
       .pluck(:title)
+  end
+
+  def time_limit?
+    self.time_limit != 0
   end
 
   # scope :sorted_by_category, ->(category) { joins(:category).where(categories: { title: category }).order(id: :desc) }#.pluck(:title) }

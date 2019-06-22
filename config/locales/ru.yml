@@ -12,6 +12,7 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+        time_limit: "Ввести таймер"
 
   layouts:
     admin:
@@ -58,6 +59,7 @@ ru:
       green-badge: "Вы заслужили значок за прохождение всех тестов в категории %{reason}."
       pink-badge: "Вы заслужили значок за прохождение всех тестов уровня %{reason}."
       other-badge: "Вы заслужили значок."
+      timeout: "Время вышло."
 
   admin:
     tests:

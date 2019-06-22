@@ -1,6 +1,7 @@
 class TestPassagesController < ApplicationController
 
   before_action :set_test_passage, only: %i[show update result gist]
+  before_action :check_time_limit, only: :update
 
   def show
   end
@@ -34,6 +35,15 @@ class TestPassagesController < ApplicationController
     redirect_to @test_passage
   end
 
+  def check_time_limit
+    return unless @test_passage.test.time_limit?
+    if Time.current >= @test_passage.time_finish
+      @test_passage.stop_passage
+      redirect_to tests_path
+      flash[:alert] = t('.timeout')
+    end
+  end
+
   private
 
   def set_test_passage
@@ -41,6 +51,7 @@ class TestPassagesController < ApplicationController
   end
 
   def achieve_badges
+    return unless @test_passage.success?
     badges = BadgesControlService.new(@test_passage).call
 
     if badges.any?
