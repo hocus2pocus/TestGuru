@@ -1,7 +1,7 @@
 class TestPassagesController < ApplicationController
 
   before_action :set_test_passage, only: %i[show update result gist]
-  before_action :timer, only: :update
+  before_action :check_time_limit, only: :update
 
   def show
   end
@@ -35,7 +35,7 @@ class TestPassagesController < ApplicationController
     redirect_to @test_passage
   end
 
-  def timer
+  def check_time_limit
     return unless @test_passage.test.time_limit?
     if Time.current >= @test_passage.time_finish
       @test_passage.stop_passage
