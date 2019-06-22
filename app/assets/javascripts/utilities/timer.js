@@ -1,8 +1,8 @@
 document.addEventListener('turbolinks:load', function(){
   var control = document.querySelector('.timer');
-  if (control) { timer(control) };
+  if (control) { testPassageCountdownTimer(control) };
 
-  function timer(control) {
+  function testPassageCountdownTimer(control) {
     var limit = control.dataset.limit;
     if(limit > 0) { control.classList.remove('hide') }
 
