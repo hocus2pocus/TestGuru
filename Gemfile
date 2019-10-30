@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'dotenv-rails', groups: [:development, :test]
 
 # AUTH
-gem 'devise', '~> 4.0'
+gem 'devise', '~> 4.7'
 
 # NETWORKING
 gem 'faraday'
